@@ -1,3 +1,3 @@
 class Resource < ApplicationRecord
-  has_and_belongs_to_many :tweetcontents
+  has_and_belongs_to_many :tweet_contents
 end

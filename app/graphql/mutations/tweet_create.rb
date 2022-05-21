@@ -5,8 +5,10 @@ module Mutations
     field :tweet, Types::TweetType
     field :errors, [String], null: false
     def resolve(attributes:)
+      tweet_handler = Handlers::TweetHandler.create(attributes[:content])
+      tweet_handler.create_relationships
       {
-        tweet: { id: 21}
+        tweet: { id: tweet_handler.tweet.id }
       }
     end
   end
